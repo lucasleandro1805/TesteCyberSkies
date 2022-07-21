@@ -71,8 +71,7 @@ public class EnemySightSensor : MonoBehaviour
             Vector3 myPos = gameObject.transform.position;
             Vector3 enemyPos = chaseEnemy.transform.position;
             Vector3 direction = enemyPos - myPos;
-            float distance = direction.magnitude;
-            Gizmos.DrawLine(this.transform.position, this.transform.position + this.transform.forward * distance);            
+            Gizmos.DrawLine(this.transform.position, this.transform.position + direction);            
         }
     }
 }
