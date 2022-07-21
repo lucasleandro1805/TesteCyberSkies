@@ -11,6 +11,7 @@ public class HUDController : MonoBehaviour
     public GameObject gameCanvasObject;
     public TextMeshProUGUI redPointsViewer;
     public TextMeshProUGUI bluePointsViewer;
+    public TextMeshProUGUI timeCounterViewer;
 
     void Start()
     {
@@ -23,6 +24,14 @@ public class HUDController : MonoBehaviour
     {
         redPointsViewer.text  = "Points: " +battleController.redPoints  + "";
         bluePointsViewer.text = "Points: " +battleController.bluePoints + "";
+
+        {
+            float minutes = battleController.gameLifeTime / 60f;
+            int intMinutes = (int)minutes;
+            float seconds = (minutes - intMinutes)*60f;
+            int intSeconds = (int)seconds;
+            timeCounterViewer.text = intMinutes + ":" + intSeconds.ToString("00");
+        }
     }
 
     public void StartAsRedTeam()

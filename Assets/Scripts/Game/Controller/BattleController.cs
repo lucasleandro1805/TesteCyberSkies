@@ -12,10 +12,7 @@ public class BattleController : MonoBehaviour
     public GameObject blueTeamDeposit;
 
     public GameObject redTeamEntities;
-    public GameObject blueTeamEntities;
-
-    public readonly List<HumanoidReference> redHumanoids = new List<HumanoidReference>();
-    public readonly List<HumanoidReference> blueHumanoids = new List<HumanoidReference>();
+    public GameObject blueTeamEntities;   
 
     public Material redMaterial;
     public Material blueMaterial;
@@ -43,6 +40,8 @@ public class BattleController : MonoBehaviour
     public float gameLifeTime;
     private bool isRunning;
 
+    public List<HumanoidReference> redHumanoids = new List<HumanoidReference>();
+    public List<HumanoidReference> blueHumanoids = new List<HumanoidReference>();
 
     void Start()
     {
