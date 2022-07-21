@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 [CreateAssetMenu(menuName = "FSM/Transition")]
 public sealed class Transition : ScriptableObject
 {
-    public Decision Decision;
-    public BaseState TrueState;
-    public BaseState FalseState;
+    public Decision decision;
+    public BaseState trueState;
+    public BaseState falseState;
 
     public void Execute(BaseStateMachine stateMachine)
     {
-        if(Decision.Decide(stateMachine) && !(TrueState is RemainInState))
-            stateMachine.CurrentState = TrueState;
-        else if(!(FalseState is RemainInState))
-            stateMachine.CurrentState = FalseState;
+        if(decision.Decide(stateMachine) && !(trueState is RemainInState))
+            stateMachine.currentState = trueState;
+        else if(!(falseState is RemainInState))
+            stateMachine.currentState = falseState;
     }
 }

@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 8285023103931196567}
   - component: {fileID: 8285023103931196566}
   - component: {fileID: 8285023103931196565}
-  - component: {fileID: 8285023103931196522}
   - component: {fileID: 8285023103931196523}
-  m_Layer: 0
+  - component: {fileID: 1070978699}
+  - component: {fileID: 1388515481908982299}
+  - component: {fileID: 1070978701}
+  m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,19 +101,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8285023103931196522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8285023103931196564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8a6845dd76c24e108a947a4f7227e2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!195 &8285023103931196523
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -134,3 +123,43 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1070978699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8285023103931196564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fce5443c7ce3819fbd7e9e510871354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  machineData: {fileID: 11400000, guid: 2cb52a73c2f07f7c3a687cce41e9bf9c, type: 2}
+  currentState: {fileID: 11400000, guid: ef522e46ed0dbe1fe892f833cc7e7a7b, type: 2}
+--- !u!114 &1388515481908982299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8285023103931196564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7649b2253f20c1e9962108bc94c195b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxVisionDistance: 20
+  maxVisionAngle: 60
+--- !u!114 &1070978701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8285023103931196564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9375f4d6864cc99f7ad350ecf08da109, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

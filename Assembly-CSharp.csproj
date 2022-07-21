@@ -39,17 +39,24 @@
      <Compile Include="Assets/Scripts/Humanoid/Player/PlayerController.cs" />
      <Compile Include="Assets/Scripts/FSM/Decision.cs" />
      <Compile Include="Assets/Scripts/FSM/Transition.cs" />
-     <Compile Include="Assets/Scripts/Humanoid/Enemy/Workers/EnemyWorker.cs" />
      <Compile Include="Assets/Scripts/FSM/RemainInState.cs" />
      <Compile Include="Assets/Scripts/Gizmos/BoundingViewer.cs" />
-     <Compile Include="Assets/Scripts/Humanoid/Enemy/Workers/GoToTheFlag.cs" />
      <Compile Include="Assets/Scripts/FSM/State.cs" />
      <Compile Include="Assets/Scripts/FSM/BaseStateMachine.cs" />
      <Compile Include="Assets/Scripts/FSM/BaseState.cs" />
      <Compile Include="Assets/Scripts/Humanoid/Humanoid.cs" />
-     <Compile Include="Assets/Scripts/Spawner.cs" />
-     <Compile Include="Assets/Scripts/Humanoid/Enemy/Enemy.cs" />
      <Compile Include="Assets/Scripts/FSM/FSMAction.cs" />
+     <Compile Include="Assets/Scripts/Humanoid/Enemy/GoToFlagAction.cs" />
+     <Compile Include="Assets/Scripts/Humanoid/Enemy/ChaseAction.cs" />
+     <Compile Include="Assets/Scripts/Humanoid/Enemy/InLineOfSightDecision.cs" />
+     <Compile Include="Assets/Scripts/Humanoid/Enemy/EnemySightSensor.cs" />
+     <Compile Include="Assets/Scripts/Game/BattleController.cs" />
+     <Compile Include="Assets/Scripts/Game/Spawner.cs" />
+     <Compile Include="Assets/Scripts/Humanoid/Enemy/EnemyData.cs" />
+     <Compile Include="Assets/Scripts/FSM/MachineData.cs" />
+     <Compile Include="Assets/Scripts/Game/BattleControllerReference.cs" />
+     <Compile Include="Assets/Scripts/Utils/Teams.cs" />
+     <Compile Include="Assets/Scripts/Humanoid/Enemy/EnemyModel.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/home/lucas/Unity/Hub/Editor/2022.1.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
