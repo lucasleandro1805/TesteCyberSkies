@@ -1,1 +1,0 @@
-Temp/ScriptUpdater/1531983142/335854249_PatrolPoints.cs => Assets/Scripts/Humanoid/Enemy/PatrolPoints.cs

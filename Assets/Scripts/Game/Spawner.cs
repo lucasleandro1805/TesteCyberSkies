@@ -20,13 +20,14 @@ public class Spawner : MonoBehaviour
             EnemyData enemyData = stateMachine.machineData as EnemyData;
             enemyData.otherTeamFlag = otherTeamFlag;
             enemyData.myTeam = myTeam;
-
+            enemyData.config = bot.GetComponent<EnemyConfig>();
+            
             EnemyModel enemyModel = bot.GetComponent<EnemyModel>();
-            enemyModel.SetMaterial(battleController.MaterialOf(myTeam));
+            enemyModel.SetMaterial(battleController.MaterialOf(myTeam));            
         }
     }
 
-    private Vector3 RandomPoint(){
+    public Vector3 RandomPoint(){
         float scaX = area.transform.localScale.x;
         float scaZ = area.transform.localScale.z;
 

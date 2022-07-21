@@ -6,14 +6,13 @@ public class EnemySightSensor : MonoBehaviour
 {
     private readonly BattleControllerReference battleController = new BattleControllerReference();
 
-    public float maxVisionDistance = 20;
-    public float maxVisionAngle = 60;
-
     private GameObject chaseEnemy;
+    private EnemyConfig enemyConfig;
 
     private void Awake()
     {
         battleController.Start();
+        enemyConfig = gameObject.GetComponent<EnemyConfig>();
     }
 
     public GameObject FindVisibleEnemy(EnemyData data)
@@ -31,19 +30,28 @@ public class EnemySightSensor : MonoBehaviour
 
             Vector3 direction = enemyPos - myPos;
             float distance = direction.magnitude;
-            if(distance < maxVisionDistance)
+            if(distance < enemyConfig.maxVisionDistance)
             {
                 float angle = Vector3.Angle(Vector3.Normalize(direction), myViewDirection);
-                if(angle < maxVisionAngle)
+                if(angle < enemyConfig.maxVisionAngle)
                 {
-                    float weight = distance + angle;
-                    if(nearestEnemy == null || weight < nearestWeight)
+                    Ray ray = new Ray(myPos, direction);
+
+                    if (Physics.Raycast(ray, out var hit, enemyConfig.maxVisionDistance))
                     {
-                        nearestEnemy = enemyObj;
-                        nearestEnemyDistance = distance;
-                        nearestEnemyAngle = angle;
-                        nearestWeight = weight;
-                    }
+                        if(hit.collider.gameObject == enemyObj)
+                        {
+                            float weight = distance + angle;
+                            if(nearestEnemy == null || weight < nearestWeight)
+                            {
+                                nearestEnemy = enemyObj;
+                                nearestEnemyDistance = distance;
+                                nearestEnemyAngle = angle;
+                                nearestWeight = weight;
+                            }
+                        }
+                        
+                    }                   
                 }
             }
         }
@@ -56,13 +64,13 @@ public class EnemySightSensor : MonoBehaviour
         if(chaseEnemy == null)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawLine(this.transform.position, this.transform.position + this.transform.forward * maxVisionDistance);
+            Gizmos.DrawLine(this.transform.position, this.transform.position + this.transform.forward * enemyConfig.maxVisionDistance);
 
-            Vector3 letSideRay = Quaternion.Euler(0, -maxVisionAngle, 0) * this.transform.forward;
-            Gizmos.DrawLine(this.transform.position, this.transform.position + letSideRay * maxVisionDistance);
+            Vector3 letSideRay = Quaternion.Euler(0, -enemyConfig.maxVisionAngle, 0) * this.transform.forward;
+            Gizmos.DrawLine(this.transform.position, this.transform.position + letSideRay * enemyConfig.maxVisionDistance);
 
-            Vector3 RightSideRay = Quaternion.Euler(0, maxVisionAngle, 0) * this.transform.forward;
-            Gizmos.DrawLine(this.transform.position, this.transform.position + RightSideRay * maxVisionDistance);
+            Vector3 RightSideRay = Quaternion.Euler(0, enemyConfig.maxVisionAngle, 0) * this.transform.forward;
+            Gizmos.DrawLine(this.transform.position, this.transform.position + RightSideRay * enemyConfig.maxVisionDistance);
         }
         else
         {

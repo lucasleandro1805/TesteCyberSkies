@@ -12,5 +12,13 @@ using UnityEngine.AI;
             NavMeshAgent navMeshAgent = stateMachine.GetComponent<NavMeshAgent>();
 
             navMeshAgent.SetDestination(enemyData.otherTeamFlag.transform.position);
+            if(navMeshAgent.speed < enemyData.config.walkSpeed)
+            {
+                navMeshAgent.speed += 3f * Time.deltaTime;
+            } 
+            else 
+            {
+                navMeshAgent.speed = enemyData.config.walkSpeed;
+            }
         }
     }

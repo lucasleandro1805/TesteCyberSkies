@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 1070978699}
   - component: {fileID: 1388515481908982299}
   - component: {fileID: 1070978701}
+  - component: {fileID: 4106251901128688570}
+  - component: {fileID: 6488077429911390790}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
@@ -149,8 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7649b2253f20c1e9962108bc94c195b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVisionDistance: 20
-  maxVisionAngle: 60
 --- !u!114 &1070978701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,3 +163,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9375f4d6864cc99f7ad350ecf08da109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4106251901128688570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8285023103931196564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778aff1ab565e29ac91642ac0800ed7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkSpeed: 3
+  maxVisionDistance: 20
+  maxVisionAngle: 60
+  shotDelay: 2
+--- !u!114 &6488077429911390790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8285023103931196564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b284eea4067b1cc98ba4ff3fdd1da03d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  life: 100

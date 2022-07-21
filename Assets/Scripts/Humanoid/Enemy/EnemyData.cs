@@ -7,4 +7,7 @@ public class EnemyData : MachineData
 {
     public GameObject otherTeamFlag;
     public Teams.Type myTeam;
+    public EnemyConfig config;
+
+    public float shotDelay = 3f;
 }
