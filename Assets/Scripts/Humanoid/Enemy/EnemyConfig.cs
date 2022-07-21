@@ -10,4 +10,8 @@ public class EnemyConfig : MonoBehaviour
     public Vector2 shotDelayRange = new Vector2(1,3);
 
     public Vector2 damageRange = new Vector2(5,30);
+
+    public GameObject muzzlePosition;
+    public GameObject shotSoundPrefab;
+    public GameObject muzzlePrefab;
 }

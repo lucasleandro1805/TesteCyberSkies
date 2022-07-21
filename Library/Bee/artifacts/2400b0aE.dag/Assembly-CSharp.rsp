@@ -342,6 +342,7 @@
 -r:"Library/Bee/artifacts/2400b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/2400b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/2400b0aE.dag/com.unity.cinemachine.editor.ref.dll"
+"Assets/BigRookGames/_AssetPacks/Stylized Weapon Pack/M4 Scoped Assault Rifle/Scripts/GunfireController.cs"
 "Assets/Scripts/FSM/BaseState.cs"
 "Assets/Scripts/FSM/BaseStateMachine.cs"
 "Assets/Scripts/FSM/Decision.cs"

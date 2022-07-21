@@ -36,6 +36,12 @@ public class ShotAction : FSMAction
         sendMessageArguments[0] = Random.Range(enemyData.config.damageRange.x, enemyData.config.damageRange.y);
         sendMessageArguments[1] = myObject;
         enemy.SendMessage("ApplyDamage", sendMessageArguments);
+
+        GameObject soundObject = GameObject.Instantiate(enemyData.config.shotSoundPrefab, enemyData.config.muzzlePosition.transform.position, Quaternion.identity);
+        GameObject muzzleObject = GameObject.Instantiate(enemyData.config.muzzlePrefab, enemyData.config.muzzlePosition.transform.position, Quaternion.LookRotation(enemyData.config.muzzlePosition.transform.forward));
+
+        soundObject.transform.SetParent(myObject.transform.parent);
+        muzzleObject.transform.SetParent(myObject.transform.parent);
     }
 
     public void SetWalkSpeed(NavMeshAgent navMeshAgent)
