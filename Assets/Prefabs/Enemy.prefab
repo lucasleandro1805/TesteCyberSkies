@@ -194,6 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 100
   isAlive: 1
+  onDieInstantiateObject: {fileID: 7710073127486170972, guid: 260ce8bc0c5ec5a4fb259ba7aa81b177, type: 3}
 --- !u!114 &1076101803
 MonoBehaviour:
   m_ObjectHideFlags: 0

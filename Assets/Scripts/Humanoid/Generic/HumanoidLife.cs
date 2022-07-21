@@ -11,6 +11,8 @@ public class HumanoidLife : MonoBehaviour
 
     public bool isAlive = true;
 
+    public GameObject onDieInstantiateObject;
+
     private List<OnLifeChangedListener> onLifeChangedListeners = new List<OnLifeChangedListener>();
 
     public void SetLife(float value)
@@ -28,6 +30,18 @@ public class HumanoidLife : MonoBehaviour
     
         isAlive = this.life > 0;
         gameObject.SetActive(isAlive);    
+        if(this.life <= 0)
+        {
+            Die();
+        }       
+    }
+
+    public void Die()
+    {
+        if(onDieInstantiateObject != null)
+        {
+            GameObject.Instantiate(onDieInstantiateObject, this.transform.position, this.transform.rotation);
+        }
     }
 
     public void ApplyDamage(float damage)

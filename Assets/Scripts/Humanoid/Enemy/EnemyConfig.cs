@@ -8,4 +8,6 @@ public class EnemyConfig : MonoBehaviour
     public float maxVisionDistance = 20;
     public float maxVisionAngle = 60;
     public Vector2 shotDelayRange = new Vector2(1,3);
+
+    public Vector2 damageRange = new Vector2(5,30);
 }
