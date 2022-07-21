@@ -6,9 +6,8 @@ public class Spawner : MonoBehaviour
 {
     public GameObject botPrefab;
     public GameObject area;
-    public GameObject otherTeamFlag;
 
-    public void SpawnBots(int count, Teams.Type myTeam, BattleController battleController)
+    public void SpawnBots(int count, Teams.Type myTeam, BattleController battleController, GameObject otherTeamFlag, GameObject flagDepositLocation)
     {    
         for(int x = 0; x < count; x ++)
         {
@@ -21,9 +20,13 @@ public class Spawner : MonoBehaviour
             enemyData.otherTeamFlag = otherTeamFlag;
             enemyData.myTeam = myTeam;
             enemyData.config = bot.GetComponent<EnemyConfig>();
+            enemyData.flagDepositLocation = flagDepositLocation;
             
             EnemyModel enemyModel = bot.GetComponent<EnemyModel>();
-            enemyModel.SetMaterial(battleController.MaterialOf(myTeam));            
+            enemyModel.SetMaterial(battleController.MaterialOf(myTeam));         
+
+            FlagCapturer flagCapturer = bot.GetComponent<FlagCapturer>();
+            flagCapturer.wantedFlag = otherTeamFlag;
         }
     }
 

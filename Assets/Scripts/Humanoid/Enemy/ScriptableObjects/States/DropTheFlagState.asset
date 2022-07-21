@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed0c16b50a019513b168613b80b12e0, type: 3}
+  m_Name: DropTheFlagState
+  m_EditorClassIdentifier: 
+  action:
+  - {fileID: 11400000, guid: fe35c57539e871240ba7aae23ae6987d, type: 2}
+  transitions:
+  - {fileID: 11400000, guid: b0478f9c054846b0889055eeb9001c16, type: 2}
+  - {fileID: 11400000, guid: ea9472804968c0268bebacb3fb1dba6b, type: 2}

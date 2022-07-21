@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a106b52fc3bcd98faa5364ed86a0ea00, type: 3}
+  m_Name: GoToTheFlagTransition
+  m_EditorClassIdentifier: 
+  decision: {fileID: 11400000, guid: 1cf6125122b75e516a7862839b5dcd7f, type: 2}
+  onTrueState: {fileID: 11400000, guid: ef522e46ed0dbe1fe892f833cc7e7a7b, type: 2}
+  trueState: {fileID: 0}
+  falseState: {fileID: 0}

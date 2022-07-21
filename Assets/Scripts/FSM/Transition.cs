@@ -7,14 +7,24 @@ using UnityEngine;
 public sealed class Transition : ScriptableObject
 {
     public Decision decision;
+    public BaseState onTrueState;
+
     public BaseState trueState;
     public BaseState falseState;
 
-    public void Execute(BaseStateMachine stateMachine)
+    public bool IsActive(BaseStateMachine stateMachine)
     {
-        if(decision.Decide(stateMachine) && !(trueState is RemainInState))
-            stateMachine.currentState = trueState;
-        else if(!(falseState is RemainInState))
-            stateMachine.currentState = falseState;
+        if(decision == null)
+        {
+            stateMachine.currentState = onTrueState;
+            return true;
+        }
+
+        if(decision.Decide(stateMachine) && !(onTrueState is RemainInState))
+        {
+            stateMachine.currentState = onTrueState;
+            return true;
+        }
+        return false;
     }
 }

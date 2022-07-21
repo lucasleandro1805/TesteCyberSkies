@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[CreateAssetMenu(menuName = "Enemy/Actions/Patrol")]
+[CreateAssetMenu(menuName = "Enemy/Actions/GoToFlag")]
     public class GoToFlagAction : FSMAction
     {
         public override void Execute(BaseStateMachine stateMachine)

@@ -7,6 +7,9 @@ public class BattleController : MonoBehaviour
     public GameObject redTeamFlag;
     public GameObject blueTeamFlag;
 
+    public GameObject redTeamDeposit;
+    public GameObject blueTeamDeposit;
+
     public GameObject redTeamEntities;
     public GameObject blueTeamEntities;
 
@@ -26,12 +29,12 @@ public class BattleController : MonoBehaviour
         int humanoidLayer = LayerMask.NameToLayer("Humanoid");
 
         redSpawner = redTeamEntities.GetComponent<Spawner>();
-        redSpawner.SpawnBots(10, Teams.Type.Red, this);
+        redSpawner.SpawnBots(10, Teams.Type.Red, this, blueTeamFlag, redTeamDeposit);
         FindHumanoids(redTeamEntities, redHumanoids, humanoidLayer);
        
 
         blueSpawner = blueTeamEntities.GetComponent<Spawner>();
-        blueSpawner.SpawnBots(10, Teams.Type.Blue, this);
+        blueSpawner.SpawnBots(10, Teams.Type.Blue, this, redTeamFlag, blueTeamDeposit);
         FindHumanoids(blueTeamEntities, blueHumanoids, humanoidLayer);
     }
 

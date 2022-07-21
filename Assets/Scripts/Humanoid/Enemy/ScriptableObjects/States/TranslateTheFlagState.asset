@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed0c16b50a019513b168613b80b12e0, type: 3}
+  m_Name: TranslateTheFlagState
+  m_EditorClassIdentifier: 
+  action:
+  - {fileID: 11400000, guid: c29b55243fb9e76a0b6838c9338a449e, type: 2}
+  transitions:
+  - {fileID: 11400000, guid: 5cbcdd3d14af94d85916f2ebd78572e9, type: 2}
+  - {fileID: 11400000, guid: b0478f9c054846b0889055eeb9001c16, type: 2}
+  - {fileID: 11400000, guid: 8a8cba9af0374dcc392c828a51e84431, type: 2}
+  - {fileID: 11400000, guid: ea9472804968c0268bebacb3fb1dba6b, type: 2}

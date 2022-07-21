@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1070978701}
   - component: {fileID: 4106251901128688570}
   - component: {fileID: 6488077429911390790}
+  - component: {fileID: 1076101803}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
@@ -38,7 +39,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8285023103931196567
 MeshFilter:
@@ -175,10 +176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778aff1ab565e29ac91642ac0800ed7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 3
+  walkSpeed: 6
   maxVisionDistance: 20
   maxVisionAngle: 60
-  shotDelay: 2
+  shotDelayRange: {x: 1, y: 3}
 --- !u!114 &6488077429911390790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,3 +193,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 100
+  isAlive: 1
+--- !u!114 &1076101803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8285023103931196564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2334a88212e4a39479ea79393de064b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wantedFlag: {fileID: 0}
+  capturedFlag: {fileID: 0}

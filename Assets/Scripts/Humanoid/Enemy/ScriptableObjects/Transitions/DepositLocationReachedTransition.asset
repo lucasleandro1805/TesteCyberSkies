@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a106b52fc3bcd98faa5364ed86a0ea00, type: 3}
+  m_Name: DepositLocationReachedTransition
+  m_EditorClassIdentifier: 
+  decision: {fileID: 11400000, guid: ab39d5dc0b1691b519ad64ec83ed83c3, type: 2}
+  onTrueState: {fileID: 11400000, guid: 1eaa10df5c357ac4c85513b93652120e, type: 2}
+  trueState: {fileID: 0}
+  falseState: {fileID: 0}

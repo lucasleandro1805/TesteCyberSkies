@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: EnemySpotTransition
   m_EditorClassIdentifier: 
   decision: {fileID: 11400000, guid: 1f81fefa26b47b87a8e4060c413341fc, type: 2}
-  trueState: {fileID: 11400000, guid: fb2bafc7fdc8db896b785368fb0a3223, type: 2}
-  falseState: {fileID: 11400000, guid: ef522e46ed0dbe1fe892f833cc7e7a7b, type: 2}
+  onTrueState: {fileID: 11400000, guid: fb2bafc7fdc8db896b785368fb0a3223, type: 2}
+  trueState: {fileID: 0}
+  falseState: {fileID: 0}

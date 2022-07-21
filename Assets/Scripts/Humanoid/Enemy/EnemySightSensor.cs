@@ -61,25 +61,27 @@ public class EnemySightSensor : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if(chaseEnemy == null)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(this.transform.position, this.transform.position + this.transform.forward * enemyConfig.maxVisionDistance);
+        if(enemyConfig != null){
+            if(chaseEnemy == null)
+            {
+                Gizmos.color = Color.green;
+                Gizmos.DrawLine(this.transform.position, this.transform.position + this.transform.forward * enemyConfig.maxVisionDistance);
 
-            Vector3 letSideRay = Quaternion.Euler(0, -enemyConfig.maxVisionAngle, 0) * this.transform.forward;
-            Gizmos.DrawLine(this.transform.position, this.transform.position + letSideRay * enemyConfig.maxVisionDistance);
+                Vector3 letSideRay = Quaternion.Euler(0, -enemyConfig.maxVisionAngle, 0) * this.transform.forward;
+                Gizmos.DrawLine(this.transform.position, this.transform.position + letSideRay * enemyConfig.maxVisionDistance);
 
-            Vector3 RightSideRay = Quaternion.Euler(0, enemyConfig.maxVisionAngle, 0) * this.transform.forward;
-            Gizmos.DrawLine(this.transform.position, this.transform.position + RightSideRay * enemyConfig.maxVisionDistance);
+                Vector3 RightSideRay = Quaternion.Euler(0, enemyConfig.maxVisionAngle, 0) * this.transform.forward;
+                Gizmos.DrawLine(this.transform.position, this.transform.position + RightSideRay * enemyConfig.maxVisionDistance);
+            }
+            else
+            {
+                Gizmos.color = Color.yellow;
+
+                Vector3 myPos = gameObject.transform.position;
+                Vector3 enemyPos = chaseEnemy.transform.position;
+                Vector3 direction = enemyPos - myPos;
+                Gizmos.DrawLine(this.transform.position, this.transform.position + direction);            
+            }
         }
-        else
-        {
-            Gizmos.color = Color.yellow;
-
-            Vector3 myPos = gameObject.transform.position;
-            Vector3 enemyPos = chaseEnemy.transform.position;
-            Vector3 direction = enemyPos - myPos;
-            Gizmos.DrawLine(this.transform.position, this.transform.position + direction);            
-        }
-    }
+    }    
 }

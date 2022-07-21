@@ -71,6 +71,13 @@
      <Compile Include="Assets/Scripts/Weapons/Bullet/Bullet.cs" />
      <Compile Include="Assets/Scripts/Utils/TimedObjectDestructor.cs" />
      <Compile Include="Assets/Scripts/Game/Controller/HumanoidReference.cs" />
+     <Compile Include="Assets/Scripts/Flag/Flag.cs" />
+     <Compile Include="Assets/Scripts/Flag/FlagCapturer.cs" />
+     <Compile Include="Assets/Scripts/Humanoid/Enemy/HasFlagDecision.cs" />
+     <Compile Include="Assets/Scripts/Humanoid/Enemy/TranslateTheFlagAction.cs" />
+     <Compile Include="Assets/Scripts/ScritableObjects/AlwaysTrueDecision.cs" />
+     <Compile Include="Assets/Scripts/Humanoid/Enemy/DepositLocationReachedDecision.cs" />
+     <Compile Include="Assets/Scripts/Humanoid/Enemy/DropTheFlagAction.cs" />
      <None Include="Assets/StarterAssets/Environment/Shaders/Built-in_RP/Triplanar.shader" />
      <None Include="Assets/StarterAssets/license.txt" />
      <None Include="Assets/Hovl Studio/Procedural fire/Shaders/FireSphere.shader" />

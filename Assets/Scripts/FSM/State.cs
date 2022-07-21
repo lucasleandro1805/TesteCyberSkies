@@ -12,9 +12,16 @@ public sealed class State : BaseState
     public override void Execute(BaseStateMachine machine)
     {
         foreach (var action in action)
+        {
             action.Execute(machine);
+        }
 
         foreach(var transition in transitions)
-            transition.Execute(machine);
+        {
+            if(transition.IsActive(machine))
+            {
+                break;
+            }
+        }
     }
 }

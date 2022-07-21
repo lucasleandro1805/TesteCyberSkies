@@ -7,5 +7,5 @@ public class HumanoidReference
     public GameObject gameObject;
     public HumanoidLife life;
 
-    public float deadTime = 0f;
+    public float deadTime = 0;
 }
