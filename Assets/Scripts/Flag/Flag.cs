@@ -12,6 +12,7 @@ public class Flag : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
+
         rb = gameObject.GetComponent<Rigidbody>();
         rb.detectCollisions = true;
     }
@@ -27,10 +28,8 @@ public class Flag : MonoBehaviour
 
             if(!capturedBy.activeSelf)
             {
-                capturedBy = null;
+                DropedAnyWhere();
             }
-        } else {
-            transform.position = startPosition;
         }
     }
 
@@ -43,6 +42,14 @@ public class Flag : MonoBehaviour
     public void DropAtDeposit()
     {
         capturedBy = null;
+        transform.position = startPosition;
+        rb.detectCollisions = true;
+    }
+
+    public void DropedAnyWhere()
+    {
+        capturedBy = null;
+        transform.position = startPosition;
         rb.detectCollisions = true;
     }
 }

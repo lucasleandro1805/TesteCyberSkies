@@ -23,6 +23,13 @@ public class BattleController : MonoBehaviour
     public float respawnDelay = 10;
     public float maxGameSeconds = 300;
 
+    public int redKills;
+    public int blueKills;
+    public int redCaptures;
+    public int blueCaptures;
+    public int redPoints;
+    public int bluePoints;
+
     public GameObject menuCamera;
     public HUDController hudController;
 
@@ -80,11 +87,15 @@ public class BattleController : MonoBehaviour
             case Teams.Type.Red:
             {
                 redBots--;
+                player.transform.position = redSpawner.RandomPoint();
+                player.transform.rotation = redSpawner.GetSpawnRotation();
                 break;
             }
             case Teams.Type.Blue:
             {            
                 blueBots--;
+                player.transform.position = blueSpawner.RandomPoint();
+                player.transform.rotation = blueSpawner.GetSpawnRotation();
                 break;
             }
             default:
@@ -138,6 +149,7 @@ public class BattleController : MonoBehaviour
                 HumanoidReference reference = new HumanoidReference();
                 reference.gameObject = child.gameObject;
                 reference.life = child.gameObject.GetComponent<HumanoidLife>();
+                reference.life.battleController = this;
                 store.Add(reference);
             }
         }
@@ -210,6 +222,54 @@ public class BattleController : MonoBehaviour
             default:
             {
                 throw new System.Exception("The teams type " + team.ToString() + " was not registered here!");
+            }
+        }
+    }
+
+    public void RegisterKill(GameObject from, GameObject killed)
+    {
+        {
+            bool foundAtRed = false;
+            foreach(HumanoidReference reference in redHumanoids)
+            {
+                if(reference.gameObject == from)
+                {
+                    reference.kills++;
+                    redKills++;
+                    redPoints++;
+                    foundAtRed = true;
+                    break;
+                }
+            }
+            if(!foundAtRed)
+            {
+                foreach(HumanoidReference reference in blueHumanoids)
+                {
+                    if(reference.gameObject == from)
+                    {
+                        reference.kills++;
+                        blueKills++;
+                        bluePoints++;
+                        break;
+                    }
+                }
+            }
+        }
+
+        foreach(HumanoidReference reference in redHumanoids)
+        {
+            if(reference.gameObject == killed)
+            {
+                reference.deaths++;
+                return;
+            }
+        }
+        foreach(HumanoidReference reference in blueHumanoids)
+        {
+            if(reference.gameObject == killed)
+            {
+                reference.deaths++;
+                return;
             }
         }
     }

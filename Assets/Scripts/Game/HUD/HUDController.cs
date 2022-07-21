@@ -1,21 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class HUDController : MonoBehaviour
 {
     public BattleController battleController;
-    public GameObject menuObject;
+    public GameObject menuCanvasObject;
+    public GameObject gameCanvasObject;
+    public TextMeshProUGUI redPointsViewer;
+    public TextMeshProUGUI bluePointsViewer;
 
     void Start()
     {
-        
+        menuCanvasObject.SetActive(true);
+        gameCanvasObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        redPointsViewer.text  = "Points: " +battleController.redPoints  + "";
+        bluePointsViewer.text = "Points: " +battleController.bluePoints + "";
     }
 
     public void StartAsRedTeam()
@@ -30,11 +37,13 @@ public class HUDController : MonoBehaviour
 
     public void OnBattleStarted()
     {
-        menuObject.SetActive(false);
+        menuCanvasObject.SetActive(false);
+        gameCanvasObject.SetActive(true);
     }
 
     public void OnBattleEnded()
     {
-        menuObject.SetActive(true);
+        menuCanvasObject.SetActive(true);
+        gameCanvasObject.SetActive(false);
     }
 }

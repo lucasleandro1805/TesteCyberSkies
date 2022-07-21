@@ -24,15 +24,18 @@ public class ShotAction : FSMAction
                 if(enemyData.shotDelay <= 0)
                 {
                     enemyData.shotDelay = Random.Range(enemyData.config.shotDelayRange.x, enemyData.config.shotDelayRange.y);
-                    ShotBullet(enemy, enemyData);
+                    ShotBullet(enemy, enemyData, stateMachine.gameObject);
                 }
             }        
         }
     }
 
-    public void ShotBullet(GameObject enemy, EnemyData enemyData)
-    {    
-        enemy.SendMessage("ApplyDamage", Random.Range(enemyData.config.damageRange.x, enemyData.config.damageRange.y));
+    public void ShotBullet(GameObject enemy, EnemyData enemyData, GameObject myObject)
+    {            
+        object[] sendMessageArguments = new object[2];
+        sendMessageArguments[0] = Random.Range(enemyData.config.damageRange.x, enemyData.config.damageRange.y);
+        sendMessageArguments[1] = myObject;
+        enemy.SendMessage("ApplyDamage", sendMessageArguments);
     }
 
     public void SetWalkSpeed(NavMeshAgent navMeshAgent)

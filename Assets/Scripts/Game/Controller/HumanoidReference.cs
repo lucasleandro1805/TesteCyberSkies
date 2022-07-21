@@ -8,4 +8,6 @@ public class HumanoidReference
     public HumanoidLife life;
 
     public float deadTime = 0;
+    public int kills;
+    public int deaths;
 }

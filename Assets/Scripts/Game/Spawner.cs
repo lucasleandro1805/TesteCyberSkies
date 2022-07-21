@@ -13,6 +13,7 @@ public class Spawner : MonoBehaviour
         {
             GameObject bot = Instantiate(botPrefab);
             bot.transform.position = RandomPoint();
+            bot.transform.rotation = GetSpawnRotation();
             bot.transform.SetParent(gameObject.transform);
             
             BaseStateMachine stateMachine = bot.GetComponent<BaseStateMachine>();
@@ -26,7 +27,7 @@ public class Spawner : MonoBehaviour
             enemyModel.SetMaterial(battleController.MaterialOf(myTeam));         
 
             FlagCapturer flagCapturer = bot.GetComponent<FlagCapturer>();
-            flagCapturer.wantedFlag = otherTeamFlag;
+            flagCapturer.wantedFlag = otherTeamFlag;    
         }
     }
 
@@ -41,5 +42,15 @@ public class Spawner : MonoBehaviour
         float maxZ = area.transform.position.z + scaZ/2;
 
         return new Vector3(Random.Range(minX, maxX), area.transform.position.y, Random.Range(minZ, maxZ));
+    }
+
+    public Vector3 GetSpawnDirection()
+    {
+        return area.transform.forward;
+    }
+
+    public Quaternion GetSpawnRotation()
+    {
+        return Quaternion.LookRotation(GetSpawnDirection());
     }
 }

@@ -12,7 +12,7 @@ public class HumanoidLife : MonoBehaviour
     public bool isAlive = true;
 
     public GameObject onDieInstantiateObject;
-
+    public BattleController battleController;
     private List<OnLifeChangedListener> onLifeChangedListeners = new List<OnLifeChangedListener>();
 
     public void SetLife(float value)
@@ -27,30 +27,47 @@ public class HumanoidLife : MonoBehaviour
         {
             CallListeners();
         }
-    
+
+        UpdateAliveState(null);
+    }
+
+    public async void ApplyDamage(object[] args)
+    { 
+        ApplyDamage((float)args[0], args[1] as GameObject);
+    }
+
+    public void ApplyDamage(float damage, GameObject from)
+    {                
+        if(damage != 0)
+        {
+            this.life -= damage;
+            CallListeners();
+            UpdateAliveState(from);
+        }
+    }
+
+    private void UpdateAliveState(GameObject killFrom)
+    {
         isAlive = this.life > 0;
         gameObject.SetActive(isAlive);    
         if(this.life <= 0)
         {
-            Die();
-        }       
+            Die(killFrom);
+        }   
     }
 
-    public void Die()
+    public void Die(GameObject killFrom)
     {
         if(onDieInstantiateObject != null)
         {
             GameObject.Instantiate(onDieInstantiateObject, this.transform.position, this.transform.rotation);
         }
-    }
-
-    public void ApplyDamage(float damage)
-    {        
-        SetLife(this.life - damage);
-        if(damage != 0)
+        if(killFrom == null)
         {
-            CallListeners();
+            // means a suicide
+            killFrom = gameObject;
         }
+        battleController.RegisterKill(gameObject, killFrom);
     }
 
     private void CallListeners()
